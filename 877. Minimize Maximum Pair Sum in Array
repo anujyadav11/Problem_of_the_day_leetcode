@@ -2,6 +2,8 @@
 
 Optimal Solution - Sort the array and pair smallest and largest elements to minimize the maximum pair sum.
 
+                    “Pairing the smallest and largest elements balances each pair and minimizes the maximum sum.”
+
 class Solution {
     public int minPairSum(int[] nums) {
         int n = nums.length;

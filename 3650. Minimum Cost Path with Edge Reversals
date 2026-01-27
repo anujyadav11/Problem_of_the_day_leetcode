@@ -1,0 +1,73 @@
+/*********************************************** JAVA **************************************************/
+
+Optimal Solution - Use Dijkstra’s algorithm with asymmetric edge costs to find the minimum cost path.
+                    i model the problem as a weighted graph with asymmetric edges and apply Dijkstra to compute the shortest path.
+
+class Solution {
+    // Pair class to store (node, distance)
+    static class Pair {
+        int node;
+        int dist;
+        Pair(int node, int dist) {
+            this.node = node;
+            this.dist = dist;
+        }
+    }
+    public int minCost(int n, int[][] edges) {
+        // Adjacency list:
+        // u -> (v, wt)
+        // v -> (u, 2 * wt)  [reverse edge with double cost]
+        Map<Integer, List<Pair>> adj = new HashMap<>();
+        // Build the graph
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            // Forward edge
+            adj.computeIfAbsent(u, k -> new ArrayList<>())
+               .add(new Pair(v, wt));
+            // Reverse edge with double weight
+            adj.computeIfAbsent(v, k -> new ArrayList<>())
+               .add(new Pair(u, 2 * wt));
+        }
+        // Distance array initialized to infinity
+        int[] dist = new int[n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        // Distance to source node (0) is 0
+        dist[0] = 0;
+        // Min-heap priority queue (Dijkstra)
+        PriorityQueue<Pair> pq =
+                new PriorityQueue<>((a, b) -> a.dist - b.dist);
+        // Start from node 0
+        pq.offer(new Pair(0, 0));
+        // Dijkstra's algorithm
+        while (!pq.isEmpty()) {
+            Pair cur = pq.poll();
+            int node = cur.node;
+            int d = cur.dist;
+            // Skip outdated (stale) entries
+            if (d > dist[node])
+                continue;
+            // If destination reached, return shortest distance
+            if (node == n - 1)
+                return d;
+            // If node has no outgoing edges
+            if (!adj.containsKey(node))
+                continue;
+            // Relax edges
+            for (Pair nei : adj.get(node)) {
+                int nextNode = nei.node;
+                int weight = nei.dist;
+                if (d + weight < dist[nextNode]) {
+                    dist[nextNode] = d + weight;
+                    pq.offer(new Pair(nextNode, dist[nextNode]));
+                }
+            }
+        }
+        // Destination unreachable
+        return -1;
+    }
+}
+
+Time Complexity :- O((V + E) log V).
+Space Complexity :- O(V + E).

@@ -69,5 +69,5 @@ class Solution {
     }
 }
 
-Time Complexity :- O((V + E) log V).
+Time Complexity :- O((V + E) log V). v is number of nodes and e is edges and log v for per dijksta iteration.
 Space Complexity :- O(V + E).

@@ -55,5 +55,5 @@ class Solution {
     }
 }
 
-Time Complexity :- O().
-Space Complexity :- O().
+Time Complexity :- O(n). because we loop 26 letters.
+Space Complexity :- O(1).

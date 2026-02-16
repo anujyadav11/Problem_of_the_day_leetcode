@@ -1,6 +1,6 @@
 /************************************** java **********************************/
 
-optimal solution :- 
+optimal solution :- Extract the i-th bit from n and place the extracted bit at the mirrored position
 
 class Solution {
     public int reverseBits(int n) {
@@ -18,5 +18,5 @@ class Solution {
     }
 }
 
-Time Complexity :-
-Space Complexity :- 
+Time Complexity :- O(n)
+Space Complexity :- O(1)

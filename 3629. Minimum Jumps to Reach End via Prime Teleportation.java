@@ -1,7 +1,7 @@
 /*********************************************** JAVA **************************************************/
 
 // Optimal Solution - Finds minimum jumps using BFS with ±1 moves and prime-factor value jumps, using a sieve and seen-set to efficiently process each prime value's multiples exactly once.
-/* "The seen HashSet is the critical optimization — without it, the same prime value's multiples get reprocessed every time that value is dequeued, causing TLE. 
+/* "The seen HashSet is the critical optimisation — without it, the same prime value's multiples get reprocessed every time that value is dequeued, causing TLE. 
     Once a prime's multiples are all enqueued, mark it seen so future occurrences skip the expensive multiple-traversal loop. This reduces total work from O(n × maxEl) to O(maxEl log log maxEl)." */
 
 class Solution {

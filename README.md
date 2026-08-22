@@ -1,18 +1,18 @@
 # Daily LeetCode Practice
 
 <p align="center">
-  <strong>A focused collection of 229 C++ solutions to LeetCode problems, organized by the core algorithms and data structures they exercise.</strong>
+  <strong>A focused collection of 229 Java solutions to LeetCode problems, organized by the core algorithms and data structures they exercise.</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/anujyadav11/Problem_of_the_day_leetcode"><img src="https://img.shields.io/badge/Solutions-229-0A66C2?style=for-the-badge" alt="229 solutions"></a>
-  <img src="https://img.shields.io/badge/Language-C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++">
+  <img src="https://img.shields.io/badge/Language-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
   <img src="https://img.shields.io/badge/Focus-Data%20Structures%20%26%20Algorithms-1F8A70?style=for-the-badge" alt="Data Structures and Algorithms">
 </p>
 
 ## About this repository
 
-This repository documents a consistent problem-solving practice: turning daily LeetCode challenges into clear, reusable C++ implementations. Rather than a chronological dump, solutions are grouped by the dominant concept so it is easy to review a pattern, compare approaches, or prepare for an interview topic by topic.
+This repository documents a consistent problem-solving practice: turning daily LeetCode challenges into clear, reusable Java implementations. Rather than a chronological dump, solutions are grouped by the dominant concept so it is easy to review a pattern, compare approaches, or prepare for an interview topic by topic.
 
 Each filename begins with its LeetCode problem number and includes the problem title, making every solution quick to locate and verify.
 
@@ -42,7 +42,7 @@ Each filename begins with its LeetCode problem number and includes the problem t
 2. Open a solution using the problem number or title.
 3. Read the implementation alongside the original LeetCode prompt to understand the constraints and trade-offs.
 
-Solutions target the LeetCode C++ environment, where the platform supplies the input types and invokes the `Solution` class. For local experimentation, copy one solution into a file named `solution.cpp` and add a small driver program.
+Solutions target the LeetCode Java environment, where the platform supplies the input types and invokes the `Solution` class. For local experimentation, copy one solution into a file named `Solution.java` and add a small driver program.
 
 ## Practice principles
 

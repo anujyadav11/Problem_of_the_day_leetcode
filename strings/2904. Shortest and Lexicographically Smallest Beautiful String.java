@@ -52,41 +52,42 @@ class Solution {
 
 class Solution {
     public String shortestBeautifulSubstring(String s, int k) {
-        int n = s.length();
-        int i = 0, j = 0;
-        int ones = 0;
+        // Initialize the result as an empty string
         String res = "";
+        // Initialize two pointers, i and j, for sliding window and a counter for '1's
+        int i = 0, j = 0, count = 0, n = s.length();
+        // Traverse the string with the right pointer `j`
         while (j < n) {
-            // Add current character to the window
-            if (s.charAt(j) == '1') {
-                ones++;
-            }
-            // Shrink while we have too many 1s
-            // or remove unnecessary leading zeros
-            while (ones > k || s.charAt(i) == '0') {
-                if (s.charAt(i) == '1') {
-                    ones--;
-                }
-                i++;
-            }
-            // Current window contains exactly k ones
-            if (ones == k) {
-                // substring end index is exclusive
-                String temp = s.substring(i, j + 1);
-                // Keep shorter substring or lexicographically smaller one
-                if (res.isEmpty() ||
-                    res.length() > j - i + 1 ||
-                    (temp.length() == res.length() &&
-                     temp.compareTo(res) < 0)) {
-
-                    res = temp;
+            // If the current character is '1', increment the counter
+            if (s.charAt(j) == '1')
+                count++;
+            // When the count of '1's equals k, process the window
+            if (count == k) {
+                // Move the left pointer `i` to find the smallest valid substring
+                while (i < n && count == k) {
+                    // Extract the current substring from `i` to `j`
+                    String s1 = s.substring(i, j + 1);
+                    // Update the result if it's empty or the current substring is shorter
+                    if (res.isEmpty() || s1.length() < res.length())
+                        res = s1;
+                    // If lengths are equal, keep the lexicographically smaller one
+                    else if (s1.length() == res.length())
+                        res = (res.compareTo(s1) < 0) ? res : s1;
+                    // If the character at `i` is '1', decrement the counter
+                    if (s.charAt(i) == '1')
+                        count--;
+                    // Move the left pointer `i` forward
+                    i++;
                 }
             }
+            // Move the right pointer `j` forward
             j++;
         }
+        // Return the shortest beautiful substring found
         return res;
     }
 }
+
 
 // Time Complexity :- O(n).
 // Space Complexity :- O(n).

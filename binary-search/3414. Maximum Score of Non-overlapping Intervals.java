@@ -3,7 +3,7 @@
 // Optimal Solution - Weighted Interval Scheduling + Binary Search + Bounded DP + Lexicographical Tie-Breaking
 /* “I treat this as weighted interval scheduling with a maximum of four selected intervals. I first sort the intervals by start time and use binary search to find the first interval whose start is strictly greater than the current interval’s end. 
     Then I use DP where t[i][k] represents the best result from interval i onward when I can still choose at most k intervals. 
-    For each state I either skip the current interval or take it and jump to its next compatible interval. If both choices have the same weight, I select the lexicographically smaller list of original indices.” */
+    For each state, I either skip the current interval or take it and jump to its next compatible interval. If both choices have the same weight, I select the lexicographically smaller list of original indices.” */
 
 class Solution {
     int n;

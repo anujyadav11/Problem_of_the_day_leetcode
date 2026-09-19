@@ -23,5 +23,5 @@ class Solution {
     }
 }
 
-// Time Complexity :- O(1).
-// Space Complexity :- O(1).
+// Time Complexity :- O(1). doing it without using any type of loop
+// Space Complexity :- O(1). without using any extra spcae

@@ -1,0 +1,42 @@
+/*********************************************** JAVA **************************************************/
+
+// Optimal Solution - Solved Count Servers that Communicate using row and column frequency counting in O(n*m) time and O(n+m) auxiliary space.
+/* "I solve this in two passes. First, I count the number of servers in each row and column. 
+    Then I revisit the grid and exclude any server whose row count and column count are both one, because it cannot communicate with another server." */
+
+class Solution {
+    public int countServers(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+        // Store the number of servers in each row and column.
+        int[] rowCount = new int[n];
+        int[] colCount = new int[m];
+        int count = 0;
+        // First pass: Count servers in every row and column.
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == 1) {
+                    rowCount[i]++;
+                    colCount[j]++;
+                    count++;
+                }
+            }
+        }
+        // Second pass: Exclude servers that cannot communicate.
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                // A server cannot communicate if it is the only
+                // server in both its row and its column.
+                if (grid[i][j] == 1 &&
+                    rowCount[i] == 1 &&
+                    colCount[j] == 1) {
+                    count--;
+                }
+            }
+        }
+        return count;
+    }
+}
+
+// Time Complexity :- O(n * m).
+// Space Complexity :- O(n + m).
